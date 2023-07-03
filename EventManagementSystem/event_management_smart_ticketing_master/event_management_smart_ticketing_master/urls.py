@@ -27,6 +27,14 @@ urlpatterns = [
     path('adminlogin', LoginView.as_view(template_name='adminlogin.html')),
     path('logout',LogoutView.as_view(template_name='index.html'),name='logout'),
 
-     path('afterlogin', views.afterlogin_view,name='afterlogin'),
+    path('organizerclick',views.organizerclick_view,name='organizer'),
+    path('organizersignup',views.organizer_signup_view,name=''),
+    path('organizerlogin',LoginView.as_view(template_name='organizerlogin.html')),
+    path('logout',LogoutView.as_view(template_name='index.html')),
+    
+    path('attendeeclick',views.attendeeclick_view,name=''),
+
+    path('afterlogin', views.afterlogin_view,name='afterlogin'),
+
 
 ]
