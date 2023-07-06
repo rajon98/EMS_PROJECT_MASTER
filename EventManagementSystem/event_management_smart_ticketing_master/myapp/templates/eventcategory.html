@@ -1,0 +1,67 @@
+
+{% extends 'adminbase.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load widget_tweaks %}
+
+{% block content %}
+<br>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+               
+<div class="container">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-10">
+                <h5>Create Event</h5>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-success" href="{% url 'event_category_list' %}">Event List</a>
+            </div>
+        </div>
+    </div>
+ <br>
+    <form action="/event_category_create" method="POST">
+<div class="jumbotron">
+       {% include 'message.html' %}
+   
+    {% csrf_token %}
+
+    <div class="mb-3">
+      
+        <label for = "name" class="form-label">Event Name:</label>
+        <input type="text" id="name" class="form-control" placeholder="Enter Event Name" name="name" required>
+      </div>
+      
+      <div class="mb-3">
+      
+        <label for = "author" class="form-label">Code:</label>
+        <input type="text" id="author" class="form-control" placeholder="Enter code(6-digit)" name="code" required>
+      </div>
+
+    
+      <div class="form-group">
+        {% render_field form.status class="form-control" placeholder="status" %}
+      </div>
+       <input type="submit"  class="btn btn-success" value="Submit">
+       
+    </div>
+</div>
+
+</form>
+
+</div>
+        </div>
+    </div>
+    
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWIxMDY2IiwiYSI6ImNrYnJqb2x6NDAyN2cyc3BuenoxemNjdmEifQ.uWDYuTOqXB9KMPBmeDxORw';
+        var map = new mapboxgl.Map({
+        container: 'location-field-map',
+        style: 'mapbox://styles/mapbox/streets-v11'
+        });
+    </script>
+{% endblock content %}

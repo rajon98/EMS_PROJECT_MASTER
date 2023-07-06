@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'bootstrap5',
     'myapp',
     'widget_tweaks',  
-
+  
+  
+    
+   
 ]
 
 MIDDLEWARE = [
@@ -122,6 +125,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'static')
+
+# Crsipy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 LOGIN_REDIRECT_URL='/afterlogin'
 # Default primary key field type
